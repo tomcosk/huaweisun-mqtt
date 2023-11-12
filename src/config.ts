@@ -1,4 +1,7 @@
 import { totalConsumption } from "./helpers";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export interface IModbusConnection {
   mbsId: number;
