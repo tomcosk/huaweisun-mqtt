@@ -36,11 +36,11 @@ export async function RUN() {
     let s = "";
     const jsn: any = {};
     for (const register of registers) {
-      if (process.env.CONSOLE_DISPLAY === "true") {
+      if (register.display) {
         s += await readData(client, register);
         s += "\n";
+        jsn[register.name] = register.lastValue;
       }
-      jsn[register.name] = register.lastValue;
     }
     clientMqtt.publish(
       process.env.MQTT_TOPIC || "solar/ATTR",
