@@ -11,7 +11,7 @@ export interface IModbusConnection {
 export const connection: IModbusConnection = {
   mbsId: parseInt(process.env.MODBUS_ID as string, 10) || 1,
   mbsPort: parseInt(process.env.MODBUS_PORT as string, 10) || 502,
-  mbsHost: process.env.MODBUD_HOST || "127.0.0.1",
+  mbsHost: process.env.MODBUS_HOST || "127.0.0.1",
   mbsScan: parseInt(process.env.MODBUS_SCAN as string, 10) || 100,
   mbsTimeout: parseInt(process.env.MODBUS_TIMEPUT as string, 10) || 5000,
 };
