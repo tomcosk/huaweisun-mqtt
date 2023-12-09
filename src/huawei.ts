@@ -24,7 +24,7 @@ export async function RUN() {
 
   // await connectClient();
   client.close(() => {
-    console.log("Client closed");
+    console.log("Modbus Client closed");
   });
   // set requests parameters
   client.setID(connection.mbsId);

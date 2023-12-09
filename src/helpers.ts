@@ -60,17 +60,16 @@ export const totalConsumption = (registers: IRegister[]) => {
     phasesTogether += phase.lastValue;
   });
   let consumption = 0;
+  const solar = registers.find(
+    (item: IRegister) => item.type && item.type === "solar"
+  );
   if (phasesTogether < 0) {
-    const reg = registers.find(
-      (item: IRegister) => item.type && item.type === "solar"
-    );
-    if (reg) {
-      consumption = reg.lastValue - phasesTogether;
+    if (solar) {
+      consumption = solar.lastValue - phasesTogether;
     }
   } else {
-    const reg = registers.find((item) => item.type === "solar");
-    if (reg) {
-      consumption = reg.lastValue + phasesTogether;
+    if (solar) {
+      consumption = solar.lastValue + phasesTogether;
     }
   }
   return consumption;
